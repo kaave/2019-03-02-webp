@@ -37,7 +37,7 @@ module.exports = {
     'at-rule-empty-line-before': [
       'always',
       {
-        except: ['blockless-after-same-name-blockless', 'first-nested', 'inside-block'],
+        except: ['blockless-after-same-name-blockless', 'first-nested'],
         ignore: ['after-comment'],
       },
     ],
@@ -45,8 +45,5 @@ module.exports = {
     'selector-max-specificity': ['0,2,0', { ignoreSelectors: ['/:.*/', '/-[^-].*/', '/ \\+ /'] }],
     // カンマの後ろにはスペース
     'function-comma-space-after': 'always-single-line',
-
-    // @extendは難しいから近視
-    'at-rule-blacklist': ['extend'],
   },
 };

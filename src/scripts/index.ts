@@ -1,21 +1,66 @@
 import './common/initializer';
 
-import format from 'date-fns/format';
+interface Elements {
+  images: HTMLElement[];
+  inputs: HTMLInputElement[];
+}
 
-function wait(msec: number) {
-  if (msec < 1) {
-    throw new Error('msec must longer than 1msec.');
-  }
+interface State {
+  currentImageIndex: number;
+}
 
-  return new Promise(resolve => setTimeout(resolve, msec));
+function getElements(): Elements {
+  const images = ([].slice.call(document.querySelectorAll('.-js-image')) as unknown) as HTMLElement[];
+  const inputs = ([].slice.call(document.querySelectorAll('.-js-input')) as unknown) as HTMLInputElement[];
+
+  return { images, inputs };
 }
 
 class Main {
-  onDOMContentLoaded = async () => {
-    await wait(1000);
-    console.log(`DOMContentLoaded${format(new Date())}`);
+  state: State = { currentImageIndex: 0 };
+  elements = getElements();
+
+  constructor() {
+    this.setEvents();
+  }
+
+  setState: (p: Partial<State>) => void = p => {
+    const prev = this.state;
+    this.state = { ...this.state, ...p };
+    this.render(prev, this.state);
+  };
+
+  setEvents = () => {
+    this.elements.inputs.forEach(e => e.addEventListener('change', this.onInputChange));
+  };
+
+  onInputChange: (e: Event) => void = ({ currentTarget }) => {
+    if (!(currentTarget instanceof HTMLInputElement)) {
+      return;
+    }
+
+    const currentImageIndex = parseInt(currentTarget.value, 10);
+    if (Number.isNaN(currentImageIndex)) {
+      return;
+    }
+
+    this.setState({ currentImageIndex });
+  };
+
+  render: (prev: State, next: State) => void = (prev, { currentImageIndex }) => {
+    if (currentImageIndex !== prev.currentImageIndex) {
+      this.elements.images.forEach((element, i) => {
+        if (i === currentImageIndex) {
+          element.removeAttribute('hidden');
+        } else {
+          element.setAttribute('hidden', '');
+        }
+      });
+    }
   };
 }
 
-const main = new Main();
-window.addEventListener('DOMContentLoaded', main.onDOMContentLoaded);
+window.addEventListener('DOMContentLoaded', () => {
+  const main = new Main();
+  console.log(main);
+});
