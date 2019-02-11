@@ -20,6 +20,16 @@ body {
     overflow-x: hidden;
 }
 
+.Background {
+    z-index: 0;
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 .Main {
     position: relative;
     width: 100%;
@@ -82,6 +92,7 @@ body {
 
 .SupportTable__thead {
     width: 100%;
+    background: #f0f0f0;
 }
 
 .SupportTable__tr {
@@ -169,6 +180,11 @@ body {
 
 .KV {
     width: 100%;
+    padding-bottom: 15vw;
+
+    @include notSp {
+        padding-bottom: 15rem;
+    }
 }
 
 .KV__inner {
@@ -294,6 +310,117 @@ body {
 
 .Thumbnail__image {
     z-index: 0;
+    display: block;
+    width: 100%;
+}
+
+.VisualEffects {
+    width: 100%;
+}
+
+.VisualEffects__inner {
+    position: relative;
+    margin: auto;
+    padding: 0 $paddingSp;
+
+    @include notSp {
+        max-width: $maxWidth;
+        margin: auto;
+        padding: 0 $paddingPc;
+    }
+}
+
+.VisualEffects__header {
+    font-size: $h2FontSizeSp;
+    padding-bottom: 1em;
+
+    @include notSp {
+        font-size: $h2FontSizePc;
+    }
+}
+
+.IO {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto auto 100%;
+    overflow: hidden;
+
+    &::before,
+    &::after {
+        content: "";
+        z-index: 1;
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        animation: 1s $easeInOutExpo;
+        transform-origin: center;
+        transform: rotate3d(1, 1, 0, 90deg);
+    }
+
+    &::before {
+        background: #eec073;
+        animation-name: intersection-observer-wrapper-before;
+    }
+
+    &::after {
+        background: #72c4f5;
+        animation-name: intersection-observer-wrapper-after;
+    }
+}
+
+.IO.-visually-hidden {
+    &::before,
+    &::after {
+        animation: none;
+    }
+}
+
+@keyframes intersection-observer-wrapper-before {
+    from,
+    to {
+        transform: rotate3d(1, 1, 0, 90deg);
+    }
+
+    35%,
+    65% {
+        transform: none;
+    }
+}
+
+@keyframes intersection-observer-wrapper-after {
+    from,
+    to {
+        transform: rotate3d(1, 1, 0, 90deg);
+    }
+
+    45%,
+    55% {
+        transform: none;
+    }
+}
+
+.IO__image {
+    display: block;
+    width: 100%;
+    transition: 0s 300ms linear;
+}
+
+.IO.-visually-hidden .IO__image {
+    opacity: 0;
+}
+
+.Parallax {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.Parallax__image {
     display: block;
     width: 100%;
 }

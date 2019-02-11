@@ -4,7 +4,7 @@ const config = {
     description: 'This is top page',
     styles: ['/css/index.css'],
     scripts: [
-        'https://cdn.polyfill.io/v2/polyfill.js?features=default-3.4',
+        'https://cdn.polyfill.io/v2/polyfill.js?features=default-3.4,IntersectionObserver',
         '/js/vendor.bundle.js',
         '/js/index.js'
     ],
@@ -17,6 +17,9 @@ const kvs = ['f_1', 'f_2', 'u_1', 'u_2'];
 
 <%- include('./common/_head.ejs', { ...config }) %>
 
+<aside class="Background">
+    Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:66.0) Gecko/20100101 Firefox/66.0
+</aside>
 <main id="main" class="Main" role="main">
     <div class="Main__inner">
         <h1 class="Header">WebP samples</h1>
@@ -75,6 +78,27 @@ const kvs = ['f_1', 'f_2', 'u_1', 'u_2'];
                     </li>
                 <% }) %>
                 </ul>
+            </div>
+        </section>
+        <section class="VisualEffects">
+            <div class="VisualEffects__inner">
+                <h2 class="VisualEffects__header">Visual effects</h2>
+                <figure class="-js-intersection-observer VisualEffects__intersection-observer IO -visually-hidden">
+                    <picture class="IO__picture">
+                    <% if (process.env.NODE_ENV === 'production') { %>
+                        <source type="image/webp" srcset="<%= imagePath %>/p_2.webp" class="IO__image -webp">
+                    <% } %>
+                        <img src="<%= imagePath %>/p_2.jpg" alt="" class="IO__image -img">
+                    </picture>
+                </figure>
+                <figure class="-js-parallax VisualEffects__parallax Parallax" data-rellax-speed="2">
+                    <picture class="Parallax__picture">
+                    <% if (process.env.NODE_ENV === 'production') { %>
+                        <source type="image/webp" srcset="<%= imagePath %>/pp_1.webp" class="Parallax__image -webp">
+                    <% } %>
+                        <img src="<%= imagePath %>/pp_1.png" alt="" class="Parallax__image -img">
+                    </picture>
+                </figure>
             </div>
         </section>
     </div>
