@@ -15,7 +15,8 @@ body {
     font-family: $fontFamilyMincho;
     letter-spacing: 0.05em;
     font-feature-settings: "palt";
-    background: linear-gradient(to bottom, #fff, #eee);
+    background-image: url("/images/transparent-pattern.svg");
+    background-repeat: repeat;
     overflow-x: hidden;
 }
 
