@@ -64,6 +64,7 @@ const kvs = ['f_1', 'f_2', 'u_1', 'u_2'];
                     <li class="Thumbnail__cell">
                         <input type="radio" name="thumbnail-radio" id="<%= id %>" class="-js-input Thumbnail__input" value="<%= i %>" hidden <%= i === 0 ? 'checked' : '' %>>
                         <label for="<%= id %>" class="Thumbnail__label" role="button">
+                            <%= i + 1%>番目の画像を表示
                             <picture class="Thumbnail__picture">
                             <% if (process.env.NODE_ENV === 'production') { %>
                                 <source type="image/webp" srcset="<%= imagePath %>/<%= key %>.webp" class="Thumbnail__image -webp">
