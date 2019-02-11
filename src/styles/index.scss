@@ -45,6 +45,127 @@ body {
     }
 }
 
+.SupportTable {
+    width: 100%;
+    padding-bottom: 15vw;
+
+    @include notSp {
+        padding-bottom: 15rem;
+    }
+}
+
+.SupportTable__inner {
+    position: relative;
+    margin: auto;
+    padding: 0 $paddingSp;
+
+    @include notSp {
+        max-width: $maxWidth;
+        margin: auto;
+        padding: 0 $paddingPc;
+    }
+}
+
+.SupportTable__header {
+    font-size: $h2FontSizeSp;
+    padding-bottom: 1em;
+
+    @include notSp {
+        font-size: $h2FontSizePc;
+    }
+}
+
+.SupportTable__table {
+    width: 100%;
+}
+
+.SupportTable__thead {
+    width: 100%;
+}
+
+.SupportTable__tr {
+    width: 100%;
+}
+
+.SupportTable__th {
+    font-size: 3.5vw;
+    font-weight: $fontWeightBold;
+    border: solid 1px currentColor;
+    padding: 0.5em 0;
+
+    @include notSp {
+        font-size: 3.5rem;
+    }
+}
+
+.SupportTable__td {
+    font-size: 5vw;
+    text-align: center;
+    border: solid 1px currentColor;
+    padding: 0.5em 0;
+
+    @include notSp {
+        font-size: 5rem;
+    }
+}
+
+.webp .SupportTable__td.-webp,
+.webplossless .SupportTable__td.-webplossless,
+.webpalpha .SupportTable__td.-webpalpha,
+.webpanimation .SupportTable__td.-webpanimation {
+    background: #8bda95;
+}
+
+.no-webp .SupportTable__td.-webp,
+.no-webplossless .SupportTable__td.-webplossless,
+.no-webpalpha .SupportTable__td.-webpalpha,
+.no-webpanimation .SupportTable__td.-webpanimation {
+    background: #e18f84;
+}
+
+.webp .SupportTable__td.-webp::before {
+    content: "⭕";
+}
+
+.no-webp .SupportTable__td.-webp::before {
+    content: "❌";
+}
+
+.webplossless .SupportTable__td.-webplossless::before {
+    content: "⭕";
+}
+
+.no-webplossless .SupportTable__td.-webplossless::before {
+    content: "❌";
+}
+
+.webpalpha .SupportTable__td.-webpalpha::before {
+    content: "⭕";
+}
+
+.no-webpalpha .SupportTable__td.-webpalpha::before {
+    content: "❌";
+}
+
+.webpanimation .SupportTable__td.-webpanimation::before {
+    content: "⭕";
+}
+
+.no-webpanimation .SupportTable__td.-webpanimation::before {
+    content: "❌";
+}
+
+.SupportTable__ua {
+    margin-top: 1em;
+    font-size: 4vw;
+    line-height: 1.4;
+    white-space: normal;
+
+    @include notSp {
+        font-size: 1.4rem;
+    }
+}
+
 .KV {
     width: 100%;
 }

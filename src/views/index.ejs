@@ -11,6 +11,7 @@ const config = {
     metaImage: 'https://dummyimage.com/600x400/333/ddd.png&text=Dummy+image',
 };
 const imagePath = '/images';
+const features = ['webp', 'webplossless', 'webpalpha', 'webpanimation'];
 const kvs = ['f_1', 'f_2', 'u_1', 'u_2'];
 %>
 
@@ -19,6 +20,30 @@ const kvs = ['f_1', 'f_2', 'u_1', 'u_2'];
 <main id="main" class="Main" role="main">
     <div class="Main__inner">
         <h1 class="Header">WebP samples</h1>
+        <section class="SupportTable">
+            <div class="SupportTable__inner">
+                <h2 class="SupportTable__header">
+                    Device support table
+                </h2>
+                <table class="SupportTable__table">
+                    <thead class="SupportTable__thead">
+                        <tr class="SupportTable__tr">
+                        <% features.forEach(feature => { %>
+                            <th class="SupportTable__th -<%= feature %>"><%= feature %></th>
+                        <% }) %>
+                        </tr>
+                    </thead>
+                    <tbody class="SupportTable__tbody">
+                        <tr class="SupportTable__tr">
+                        <% features.forEach(feature => { %>
+                            <td class="SupportTable__td -<%= feature %>"></th>
+                        <% }) %>
+                        </tr>
+                    </tbody>
+                </table>
+                <pre class="SupportTable__ua"><code class="-js-ua SupportTable__code"></code></pre>
+            </div>
+        </section>
         <section class="KV">
             <div class="KV__inner">
                 <h2 class="KV__header">picture + label</h2>
