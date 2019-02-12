@@ -1,7 +1,7 @@
 import './common/initializer';
-import * as SupportTable from './modules/SupportTable';
-import * as PictureAndLabel from './modules/PictureAndLabel';
-import * as VisualEffects from './modules/VisualEffects';
+import * as SupportTable from './ViewModels/SupportTable';
+import * as PictureAndLabel from './ViewModels/PictureAndLabel';
+import * as VisualEffects from './ViewModels/VisualEffects';
 
 interface Managers {
   supportTable: SupportTable.IO;
@@ -18,6 +18,6 @@ class Main {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
+  // @ts-ignore
   const main = new Main();
-  console.log(main);
 });

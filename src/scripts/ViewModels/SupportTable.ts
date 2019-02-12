@@ -1,3 +1,5 @@
+import { ViewModel } from './IO';
+
 interface Elements {
   userAgent: HTMLElement;
 }
@@ -16,9 +18,7 @@ function getElements(): Elements {
   return { userAgent };
 }
 
-export interface IO {
-  render: (prev: State, next: State) => void;
-}
+export type IO = ViewModel<State>;
 
 class SupportTable implements IO {
   state: State = { userAgent: '' };

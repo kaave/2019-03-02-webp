@@ -1,3 +1,5 @@
+import { ViewModel } from './IO';
+
 interface Elements {
   images: HTMLElement[];
   inputs: HTMLInputElement[];
@@ -17,11 +19,9 @@ function getElements(): Elements {
   return { images, inputs };
 }
 
-export interface IO {
-  render: (prev: State, next: State) => void;
-}
+export type IO = ViewModel<State>;
 
-class PictureAndLabel {
+class PictureAndLabel implements IO {
   state: State = { currentImageIndex: 0 };
   elements = getElements();
 
