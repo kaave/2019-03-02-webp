@@ -15,7 +15,8 @@ body {
     font-family: $fontFamilyMincho;
     letter-spacing: 0.05em;
     font-feature-settings: "palt";
-    background-image: url("/images/transparent-pattern.svg");
+    // background-image: url("/images/transparent-pattern.svg");
+    background-image: url("/images/line.svg");
     background-repeat: repeat;
     overflow-x: hidden;
 }
@@ -23,11 +24,20 @@ body {
 .Background {
     z-index: 0;
     position: fixed;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    font-family: monospace;
+    font-size: 8.5vmin;
+    color: #bbb;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+    word-break: break-all;
 }
 
 .Main {
@@ -343,7 +353,7 @@ body {
     position: relative;
     width: 100%;
     max-width: 600px;
-    margin: auto auto 100%;
+    margin: auto auto 30%;
     overflow: hidden;
 
     &::before,
@@ -356,7 +366,7 @@ body {
         left: 0;
         width: 100%;
         height: 100%;
-        animation: 1s $easeInOutExpo;
+        animation: 3s $easeInOutExpo;
         transform-origin: center;
         transform: rotate3d(1, 1, 0, 90deg);
     }
@@ -406,7 +416,7 @@ body {
 .IO__image {
     display: block;
     width: 100%;
-    transition: 0s 300ms linear;
+    transition: 0s 1500ms linear;
 }
 
 .IO.-visually-hidden .IO__image {

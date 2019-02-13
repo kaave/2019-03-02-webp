@@ -18,7 +18,10 @@ const kvs = ['f_1', 'f_2', 'u_1', 'u_2'];
 <%- include('./common/_head.ejs', { ...config }) %>
 
 <aside class="Background">
-    Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:66.0) Gecko/20100101 Firefox/66.0
+    <span class="Background__ua -js-ua"></span>
+    <span class="Background__mouse -js-mouse"></span>
+    <span class="Background__wheel -js-wheel"></span>
+    <span class="Background__datetime -js-datetime"></span>
 </aside>
 <main id="main" class="Main" role="main">
     <div class="Main__inner">
@@ -44,7 +47,6 @@ const kvs = ['f_1', 'f_2', 'u_1', 'u_2'];
                         </tr>
                     </tbody>
                 </table>
-                <pre class="SupportTable__ua"><code class="-js-ua SupportTable__code"></code></pre>
             </div>
         </section>
         <section class="KV">
@@ -91,7 +93,7 @@ const kvs = ['f_1', 'f_2', 'u_1', 'u_2'];
                         <img src="<%= imagePath %>/p_2.jpg" alt="" class="IO__image">
                     </picture>
                 </figure>
-                <figure class="-js-parallax VisualEffects__parallax Parallax" data-rellax-speed="2">
+                <figure class="-js-parallax VisualEffects__parallax Parallax" data-rellax-speed="3">
                     <picture>
                     <% if (process.env.NODE_ENV === 'production') { %>
                         <source type="image/webp" srcset="<%= imagePath %>/pp_1.webp">

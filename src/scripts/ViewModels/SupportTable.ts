@@ -1,21 +1,13 @@
 import { ViewModel } from './IO';
 
-interface Elements {
-  userAgent: HTMLElement;
-}
+// tslint:disable-next-line no-empty-interface
+interface Elements {}
 
-interface State {
-  userAgent: string;
-}
+// tslint:disable-next-line no-empty-interface
+interface State {}
 
 function getElements(): Elements {
-  const selector = '.-js-ua';
-  const userAgent = document.querySelector(selector);
-  if (!userAgent || !(userAgent instanceof HTMLElement)) {
-    throw new Error(`Invalid DOM: not found ${selector}.`);
-  }
-
-  return { userAgent };
+  return {};
 }
 
 export type IO = ViewModel<State>;
@@ -34,11 +26,8 @@ class SupportTable implements IO {
     this.render(prev, this.state);
   };
 
-  render: (prev: State, next: State) => void = (prev, { userAgent }) => {
-    if (userAgent !== prev.userAgent) {
-      this.elements.userAgent.innerText = userAgent;
-    }
-  };
+  // tslint:disable-next-line no-empty
+  render: (prev: State, next: State) => void = (_prev, _next) => {};
 }
 
 export function create(): IO {
