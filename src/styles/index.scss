@@ -434,3 +434,79 @@ body {
     display: block;
     width: 100%;
 }
+
+.BackgroundImage {
+    width: 100%;
+}
+
+.BackgroundImage__inner {
+    position: relative;
+    margin: auto;
+    padding: 0 $paddingSp;
+
+    @include notSp {
+        max-width: $maxWidth;
+        margin: auto;
+        padding: 0 $paddingPc;
+    }
+}
+
+.BackgroundImage__header {
+    font-size: $h2FontSizeSp;
+    padding-bottom: 1em;
+
+    @include notSp {
+        font-size: $h2FontSizePc;
+    }
+}
+
+.BackgroundImage__list {
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+}
+
+.BackgroundImage__cell {
+    position: relative;
+    width: 50%;
+}
+
+.BackgroundImage__image-header {
+    font-size: $h2FontSizeSp * 0.7;
+    padding-bottom: 1em;
+
+    @include notSp {
+        font-size: $h2FontSizePc * 0.7;
+    }
+}
+
+.BackgroundImage__image {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    padding: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    text-shadow: 0px 7px 10px #000;
+}
+
+.webp .BackgroundImage__image {
+    background-image: url("/images/p_1.webp");
+
+    &::after {
+        content: "It's WebP.";
+    }
+}
+
+.no-webp .BackgroundImage__image {
+    background-image: url("/images/p_1.jpg");
+
+    &::after {
+        content: "It's jpg.";
+    }
+}

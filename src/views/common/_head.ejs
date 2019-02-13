@@ -35,6 +35,7 @@
         /*
          * check client device support webp
          */
+        var isProduction = '<%- process.env.NODE_ENV %>' === 'production';
         var features = ['webp', 'webplossless', 'webpalpha', 'webpanimation'];
         var kTestImages = {
             webp: "UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA",
@@ -44,7 +45,7 @@
         };
         function checkWebpFeature(feature, callback) {
             var img = new Image();
-            img.onload = function () { callback(feature, img.width > 0 && img.height > 0) };
+            img.onload = function () { callback(feature, isProduction && img.width > 0 && img.height > 0) };
             img.onerror = function () { callback(feature, false) };
             img.src = "data:image/webp;base64," + kTestImages[feature];
         }
