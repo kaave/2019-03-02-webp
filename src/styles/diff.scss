@@ -1,0 +1,156 @@
+@import "./common/_variables";
+@import "./common/_reset";
+@import "./common/_mixins";
+@import "./common/_defines";
+
+$paddingSp: 4vw;
+$paddingPc: 40px;
+$maxWidth: 1100px + $paddingPc * 2;
+$h2FontSizeSp: 6vw;
+$h2FontSizePc: 6rem;
+
+html,
+body {
+    width: 100%;
+    font-family: $fontFamilyMincho;
+    letter-spacing: 0.05em;
+    font-feature-settings: "palt";
+    // background-image: url("/images/transparent-pattern.svg");
+    background-image: url("/images/line.svg");
+    background-repeat: repeat;
+    overflow-x: hidden;
+}
+
+.Background {
+    z-index: 0;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-family: monospace;
+    font-size: 8.5vmin;
+    color: #bbb;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+    word-break: break-all;
+}
+
+.Form {
+    z-index: 10000000;
+    position: fixed;
+    display: block;
+    top: 1em;
+    left: 1em;
+    font-size: 4vw;
+
+    @include notSp {
+        font-size: 2rem;
+    }
+}
+
+.Form__compress-type {
+    border: solid 1px currentColor;
+    border-radius: 4px;
+}
+
+.Main {
+    position: relative;
+    width: 100%;
+}
+
+.Main__inner {
+    width: 100%;
+    margin: auto;
+    padding: 15vw $paddingSp;
+
+    @include notSp {
+        max-width: $maxWidth;
+        margin: auto;
+        padding: 15rem $paddingPc;
+    }
+}
+
+.Header {
+    padding: 0 0 1em;
+    font-size: 8vw;
+
+    @include notSp {
+        max-width: $maxWidth;
+        margin: auto;
+        font-size: 8rem;
+    }
+}
+
+.Images {
+    width: 100%;
+}
+
+.Images__header {
+    font-size: $h2FontSizeSp;
+    padding-bottom: 1em;
+
+    @include notSp {
+        font-size: $h2FontSizePc;
+    }
+}
+
+.Images__list {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.Image {
+    width: 100%;
+}
+
+.Image__parent {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.Image__image {
+    width: 100%;
+
+    &:not(.-video) {
+        display: none;
+    }
+}
+
+.Image[data-type="original"] .Image__image.-original {
+    display: block;
+}
+
+.Image[data-type="compress80"] .Image__image.-compress.-lv80 {
+    display: block;
+}
+
+.Image[data-type="compress50"] .Image__image.-compress.-lv50 {
+    display: block;
+}
+
+.Image[data-type="webp80"] .Image__image.-webp.-lv80 {
+    display: block;
+}
+
+.Image[data-type="webp50"] .Image__image.-webp.-lv50 {
+    display: block;
+}
+
+.Image__caption {
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 3em;
+
+    @include notSp {
+        font-size: 3rem;
+    }
+}

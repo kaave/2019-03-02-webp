@@ -1,0 +1,108 @@
+<%
+const config = {
+    title: 'DIFF | Frontend Nagoya #9 WebP Samples',
+    description: 'Frontend Nagoya #9 WebP Samples',
+    styles: ['/css/diff.css'],
+    scripts: [
+        'https://cdn.polyfill.io/v2/polyfill.js?features=default-3.4,IntersectionObserver',
+        '/js/vendor.bundle.js',
+        '/js/diff.js'
+    ],
+    metaImage: 'https://dummyimage.com/600x400/333/ddd.png&text=Dummy+image',
+};
+const imagePath = '/images';
+const compressTypes = [
+    { key: 'original', lv: '', desc: 'Original' },
+    { key: 'compress', lv: 80, desc: 'MozJPEG/pngquart/gifscale (80)' },
+    { key: 'webp', lv: 80, desc: 'WebP (80)' },
+    { key: 'compress', lv: 50, desc: 'MozJPEG/pngquart/gifscale (50)' },
+    { key: 'webp', lv: 50, desc: 'WebP (50)' },
+];
+const imageTypes = ['jpg', 'png', 'gif'];
+const images = {
+    jpg: [
+        { key: 'f_1', desc: '僕の写真 食べ物' }, { key: 'f_2', desc: '僕の写真 食べ物' },
+        { key: 'p_1', desc: '僕の写真 風景' },
+        { key: 'p_2', desc: '僕の写真 風景' },
+        { key: 'u_1', desc: 'unsplash' },
+        { key: 'u_2', desc: 'unsplash' },
+    ],
+    png: [
+        { key: 'ss_1', desc: 'スクショ GoogleMaps' },
+        { key: 'ss_2', desc: 'スクショ fitbit' },
+        { key: 'i_1', desc: 'イラスト' },
+        { key: 'i_2', desc: 'イラスト' },
+        { key: 'a_1', desc: '透過入りpng' },
+        { key: 'a_2', desc: '透過入りpng' },
+        { key: 'pp_1', desc: '透過入りpng 写真' },
+    ],
+    gif: [
+        { key: 'ag_1', desc: 'アニメーションgif' },
+        { key: 'ag_2', desc: 'アニメーションgif 透過入り' },
+    ],
+};
+
+function getImageUrl(key, lv, compressType, ext) {
+    if (compressType === 'original') {
+        return `${imagePath}/${key}.${ext}`;
+    }
+
+    return `${imagePath}/${lv}/${key}.${compressType === 'webp' ? compressType : ext}`;
+}
+%>
+
+<%- include('./common/_head.ejs', { ...config }) %>
+
+<aside class="Background">
+    <span class="Background__ua -js-ua"></span>
+    <span class="Background__mouse -js-mouse"></span>
+    <span class="Background__wheel -js-wheel"></span>
+    <span class="Background__datetime -js-datetime"></span>
+</aside>
+<aside class="Form">
+    <select class="-js-compress-type Form__compress-type">
+    <% compressTypes.forEach(({ key, lv, desc }) => { %>
+        <option value="<%= key + lv %>"><%= desc %></option>
+    <% }) %>
+    </select>
+</aside>
+<main id="main" class="Main" role="main">
+    <div class="Main__inner">
+        <h1 class="Header">WebP diff</h1>
+        <% imageTypes.forEach(ext => { %>
+        <section class="Images -<%= ext %>">
+            <h2 class="Images__header"><%= ext %></h1>
+            <ul class="Images__list">
+            <% images[ext].forEach(({ key, desc }) => { %>
+                <li class="-js-image Images__cell Image" data-type="original">
+                    <figure class="Image__parent">
+                    <% compressTypes.forEach(({ key: compressType, lv, desc: compressDesc }) => { %>
+                        <img
+                            src="<%= getImageUrl(key, lv, compressType, ext) %>"
+                            alt=""
+                            class="Image__image <%= lv ? `-lv${lv}` : '-original' %> <%= compressType === 'webp' ? '-webp' : `-compress` %>"
+                        >
+                    <% }); %>
+                        <figcaption class="Image__caption">[<%= key %>] <%= desc %></figcaption>
+                    </figure>
+                </li>
+            <% }); %>
+            <% if (ext === 'gif') { %>
+                <li class="-js-image Images__cell Image" data-type="original">
+                    <figure class="Image__parent">
+                        <video src="/images/mp4/ag_1.mp4" class="Image__image -video" preload autoplay loop></video>
+                        <figcaption class="Image__caption">[ag_1] アニメーションgif 動画ver</figcaption>
+                    </figure>
+                    <figure class="Image__parent">
+                        <video src="/images/mp4/ag_2.mp4" class="Image__image -video" preload autoplay loop></video>
+                        <figcaption class="Image__caption">[ag_2] アニメーションgif 動画ver</figcaption>
+                    </figure>
+                </li>
+            <% } %>
+            </ul>
+        </section>
+        <% }); %>
+    </div>
+</main>
+
+<%- include('./common/_foot.ejs', { ...config }) %>
