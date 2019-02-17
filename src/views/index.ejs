@@ -57,7 +57,7 @@ const kvs = ['f_1', 'f_2', 'u_1', 'u_2'];
                     <li class="-js-image KV__cell" <%= i !== 0 ? 'hidden' : '' %>>
                         <picture>
                         <% if (process.env.NODE_ENV === 'production') { %>
-                            <source type="image/webp" srcset="<%= imagePath %>/<%= key %>.webp">
+                            <source type="image/webp" srcset="<%= imagePath %>/80/<%= key %>.webp">
                         <% } %>
                             <img src="<%= imagePath %>/<%= key %>.jpg" alt="" class="KV__image">
                         </picture>
@@ -72,7 +72,7 @@ const kvs = ['f_1', 'f_2', 'u_1', 'u_2'];
                             <%= i + 1%>番目の画像を表示
                             <picture>
                             <% if (process.env.NODE_ENV === 'production') { %>
-                                <source type="image/webp" srcset="<%= imagePath %>/<%= key %>.webp">
+                                <source type="image/webp" srcset="<%= imagePath %>/80/<%= key %>.webp">
                             <% } %>
                                 <img src="<%= imagePath %>/<%= key %>.jpg" alt="" class="Thumbnail__image">
                             </picture>
@@ -88,7 +88,7 @@ const kvs = ['f_1', 'f_2', 'u_1', 'u_2'];
                 <figure class="-js-intersection-observer VisualEffects__intersection-observer IO -visually-hidden">
                     <picture>
                     <% if (process.env.NODE_ENV === 'production') { %>
-                        <source type="image/webp" srcset="<%= imagePath %>/p_2.webp">
+                        <source type="image/webp" srcset="<%= imagePath %>/80/p_2.webp">
                     <% } %>
                         <img src="<%= imagePath %>/p_2.jpg" alt="" class="IO__image">
                     </picture>
@@ -96,7 +96,7 @@ const kvs = ['f_1', 'f_2', 'u_1', 'u_2'];
                 <figure class="-js-parallax VisualEffects__parallax Parallax" data-rellax-speed="3">
                     <picture>
                     <% if (process.env.NODE_ENV === 'production') { %>
-                        <source type="image/webp" srcset="<%= imagePath %>/pp_1.webp">
+                        <source type="image/webp" srcset="<%= imagePath %>/80/pp_1.webp">
                     <% } %>
                         <img src="<%= imagePath %>/pp_1.png" alt="" class="Parallax__image">
                     </picture>

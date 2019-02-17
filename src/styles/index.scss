@@ -496,10 +496,10 @@ body {
 }
 
 .webp .BackgroundImage__image {
-    background-image: url("/images/p_1.webp");
+    background-image: url("/images/80/p_1.webp");
 
     &::after {
-        content: "It's WebP.";
+        content: "WebP";
     }
 }
 
@@ -507,6 +507,6 @@ body {
     background-image: url("/images/p_1.jpg");
 
     &::after {
-        content: "It's jpg.";
+        content: "jpg";
     }
 }

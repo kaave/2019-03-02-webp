@@ -17,6 +17,7 @@ exports.path = {
 // この項目に要素を追加すると[copy:[KEY_NAME]]という名称で勝手にtaskも増えます。
 exports.copy = {
   'assets:build': [`${exports.path.assets}/**/*`, `!${exports.path.assets}/**/*.{jpg,jpeg,gif,png}`],
+  templateImages: [`${exports.path.template}/**/*{jpg,jpeg,gif,png,webp,mp4}`],
 };
 
 exports.style = {
