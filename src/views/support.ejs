@@ -1,0 +1,115 @@
+<%
+const config = {
+    title: 'top',
+    description: 'This is top page',
+    styles: ['/css/support.css'],
+    scripts: [
+        'https://cdn.polyfill.io/v2/polyfill.js?features=default-3.4,IntersectionObserver',
+        '/js/vendor.bundle.js',
+        '/js/support.js'
+    ],
+    metaImage: 'https://dummyimage.com/600x400/333/ddd.png&text=Dummy+image',
+};
+const imagePath = '/images';
+const features = ['webp', 'webplossless', 'webpalpha', 'webpanimation'];
+const kvs = ['f_1', 'f_2', 'u_1', 'u_2'];
+%>
+
+<%- include('./common/_head.ejs', { ...config }) %>
+
+<aside class="Background">
+    <span class="Background__ua -js-ua"></span>
+    <span class="Background__mouse -js-mouse"></span>
+    <span class="Background__wheel -js-wheel"></span>
+    <span class="Background__datetime -js-datetime"></span>
+</aside>
+<main id="main" class="Main" role="main">
+    <div class="Main__inner">
+        <h1 class="Header">WebP samples</h1>
+        <section class="SupportTable">
+            <div class="SupportTable__inner">
+                <h2 class="SupportTable__header">
+                    Device support table
+                </h2>
+                <table class="SupportTable__table">
+                    <thead class="SupportTable__thead">
+                        <tr class="SupportTable__tr">
+                        <% features.forEach(feature => { %>
+                            <th class="SupportTable__th -<%= feature %>"><%= feature %></th>
+                        <% }) %>
+                        </tr>
+                    </thead>
+                    <tbody class="SupportTable__tbody">
+                        <tr class="SupportTable__tr">
+                        <% features.forEach(feature => { %>
+                            <td class="SupportTable__td -<%= feature %>"></th>
+                        <% }) %>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="KV">
+            <div class="KV__inner">
+                <h2 class="KV__header">picture + label</h2>
+                <ul class="KV__list">
+                <% kvs.forEach((key, i) => { %>
+                    <li class="-js-image KV__cell" <%= i !== 0 ? 'hidden' : '' %>>
+                        <picture>
+                        <% if (process.env.NODE_ENV === 'production') { %>
+                            <source type="image/webp" srcset="<%= imagePath %>/80/<%= key %>.webp">
+                        <% } %>
+                            <img src="<%= imagePath %>/<%= key %>.jpg" alt="" class="KV__image">
+                        </picture>
+                    </li>
+                <% }) %>
+                </ul>
+                <ul class="KV__thumbnail Thumbnail">
+                <% kvs.map(key => ({ key, id: `thumbnail-${key}` })).forEach(({ key, id }, i) => { %>
+                    <li class="Thumbnail__cell">
+                        <input type="radio" name="thumbnail-radio" id="<%= id %>" class="-js-input Thumbnail__input" value="<%= i %>" hidden <%= i === 0 ? 'checked' : '' %>>
+                        <label for="<%= id %>" class="Thumbnail__label" role="button">
+                            <%= i + 1%>番目の画像を表示
+                            <picture>
+                            <% if (process.env.NODE_ENV === 'production') { %>
+                                <source type="image/webp" srcset="<%= imagePath %>/80/<%= key %>.webp">
+                            <% } %>
+                                <img src="<%= imagePath %>/<%= key %>.jpg" alt="" class="Thumbnail__image">
+                            </picture>
+                        </label>
+                    </li>
+                <% }) %>
+                </ul>
+            </div>
+        </section>
+        <section class="VisualEffects">
+            <div class="VisualEffects__inner">
+                <h2 class="VisualEffects__header">Visual effects</h2>
+                <figure class="-js-intersection-observer VisualEffects__intersection-observer IO -visually-hidden">
+                    <picture>
+                    <% if (process.env.NODE_ENV === 'production') { %>
+                        <source type="image/webp" srcset="<%= imagePath %>/80/p_2.webp">
+                    <% } %>
+                        <img src="<%= imagePath %>/p_2.jpg" alt="" class="IO__image">
+                    </picture>
+                </figure>
+                <figure class="-js-parallax VisualEffects__parallax Parallax" data-rellax-speed="3">
+                    <picture>
+                    <% if (process.env.NODE_ENV === 'production') { %>
+                        <source type="image/webp" srcset="<%= imagePath %>/80/pp_1.webp">
+                    <% } %>
+                        <img src="<%= imagePath %>/pp_1.png" alt="" class="Parallax__image">
+                    </picture>
+                </figure>
+            </div>
+        </section>
+        <section class="BackgroundImage">
+            <div class="BackgroundImage__inner">
+                <h2 class="BackgroundImage__header">CSS Background Image</h2>
+            </div>
+            <div class="BackgroundImage__image" role="presentation"></div>
+        </section>
+    </div>
+</main>
+
+<%- include('./common/_foot.ejs', { ...config }) %>

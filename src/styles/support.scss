@@ -1,0 +1,512 @@
+@import "./common/_variables";
+@import "./common/_reset";
+@import "./common/_mixins";
+@import "./common/_defines";
+
+$paddingSp: 4vw;
+$paddingPc: 40px;
+$maxWidth: 1100px + $paddingPc * 2;
+$h2FontSizeSp: 6vw;
+$h2FontSizePc: 6rem;
+
+html,
+body {
+    width: 100%;
+    font-family: $fontFamilyMincho;
+    letter-spacing: 0.05em;
+    font-feature-settings: "palt";
+    // background-image: url("/images/transparent-pattern.svg");
+    background-image: url("/images/line.svg");
+    background-repeat: repeat;
+    overflow-x: hidden;
+}
+
+.Background {
+    z-index: 0;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-family: monospace;
+    font-size: 8.5vmin;
+    color: #bbb;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+    word-break: break-all;
+}
+
+.Main {
+    position: relative;
+    width: 100%;
+}
+
+.Main__inner {
+    width: 100%;
+    padding: 15vw 0;
+
+    @include notSp {
+        padding: 15rem 0;
+    }
+}
+
+.Header {
+    padding: 0 $paddingSp 1em;
+    font-size: 8vw;
+
+    @include notSp {
+        max-width: $maxWidth;
+        margin: auto;
+        padding: 0 $paddingPc 1em;
+        font-size: 8rem;
+    }
+}
+
+.SupportTable {
+    width: 100%;
+    padding-bottom: 15vw;
+
+    @include notSp {
+        padding-bottom: 15rem;
+    }
+}
+
+.SupportTable__inner {
+    position: relative;
+    margin: auto;
+    padding: 0 $paddingSp;
+
+    @include notSp {
+        max-width: $maxWidth;
+        margin: auto;
+        padding: 0 $paddingPc;
+    }
+}
+
+.SupportTable__header {
+    font-size: $h2FontSizeSp;
+    padding-bottom: 1em;
+
+    @include notSp {
+        font-size: $h2FontSizePc;
+    }
+}
+
+.SupportTable__table {
+    width: 100%;
+}
+
+.SupportTable__thead {
+    width: 100%;
+    background: #f0f0f0;
+}
+
+.SupportTable__tr {
+    width: 100%;
+}
+
+.SupportTable__th {
+    font-size: 3.5vw;
+    font-weight: $fontWeightBold;
+    border: solid 1px currentColor;
+    padding: 0.5em 0;
+
+    @include notSp {
+        font-size: 3.5rem;
+    }
+}
+
+.SupportTable__td {
+    font-size: 5vw;
+    text-align: center;
+    border: solid 1px currentColor;
+    padding: 0.5em 0;
+
+    @include notSp {
+        font-size: 5rem;
+    }
+}
+
+.webp .SupportTable__td.-webp,
+.webplossless .SupportTable__td.-webplossless,
+.webpalpha .SupportTable__td.-webpalpha,
+.webpanimation .SupportTable__td.-webpanimation {
+    background: #8bda95;
+}
+
+.no-webp .SupportTable__td.-webp,
+.no-webplossless .SupportTable__td.-webplossless,
+.no-webpalpha .SupportTable__td.-webpalpha,
+.no-webpanimation .SupportTable__td.-webpanimation {
+    background: #e18f84;
+}
+
+.webp .SupportTable__td.-webp::before {
+    content: "⭕";
+}
+
+.no-webp .SupportTable__td.-webp::before {
+    content: "❌";
+}
+
+.webplossless .SupportTable__td.-webplossless::before {
+    content: "⭕";
+}
+
+.no-webplossless .SupportTable__td.-webplossless::before {
+    content: "❌";
+}
+
+.webpalpha .SupportTable__td.-webpalpha::before {
+    content: "⭕";
+}
+
+.no-webpalpha .SupportTable__td.-webpalpha::before {
+    content: "❌";
+}
+
+.webpanimation .SupportTable__td.-webpanimation::before {
+    content: "⭕";
+}
+
+.no-webpanimation .SupportTable__td.-webpanimation::before {
+    content: "❌";
+}
+
+.SupportTable__ua {
+    margin-top: 1em;
+    font-size: 4vw;
+    line-height: 1.4;
+    white-space: normal;
+
+    @include notSp {
+        font-size: 1.4rem;
+    }
+}
+
+.KV {
+    width: 100%;
+    padding-bottom: 15vw;
+
+    @include notSp {
+        padding-bottom: 15rem;
+    }
+}
+
+.KV__inner {
+    position: relative;
+    margin: auto;
+    padding: 0 $paddingSp;
+
+    @include notSp {
+        max-width: $maxWidth;
+        margin: auto;
+        padding: 0 $paddingPc;
+    }
+}
+
+.KV__header {
+    font-size: $h2FontSizeSp;
+    padding-bottom: 1em;
+
+    @include notSp {
+        font-size: $h2FontSizePc;
+    }
+}
+
+.KV__list {
+    position: relative;
+    width: 100%;
+    margin-bottom: 5vw;
+
+    @include notSp {
+        margin-bottom: 50px;
+    }
+}
+
+.KV__list::before {
+    content: "";
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 0;
+    padding-top: calc(100% / 3 * 2);
+}
+
+.KV__cell {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 600ms $easeOutExpo;
+    transform-origin: center;
+
+    &[hidden] {
+        display: block;
+        opacity: 0;
+        transform: scale3d(1.2, 1.2, 1);
+        pointer-events: none;
+    }
+}
+
+.KV__image {
+    display: block;
+    width: 100%;
+}
+
+.Thumbnail {
+    display: flex;
+    width: 100%;
+}
+
+.Thumbnail__cell {
+    position: relative;
+    width: 25%;
+    overflow: hidden;
+}
+
+.Thumbnail__cell::before {
+    content: "";
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 0;
+    padding-top: calc(100% / 3 * 2);
+}
+
+.Thumbnail__label {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    cursor: pointer;
+}
+
+.Thumbnail__label::before {
+    content: "";
+    z-index: 1;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.7;
+    transition: opacity 600ms $easeOutExpo;
+}
+
+.Thumbnail__input:checked + .Thumbnail__label::before {
+    content: "";
+    z-index: 1;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #000;
+    opacity: 0;
+}
+
+.Thumbnail__image {
+    z-index: 0;
+    display: block;
+    width: 100%;
+}
+
+.VisualEffects {
+    width: 100%;
+}
+
+.VisualEffects__inner {
+    position: relative;
+    margin: auto;
+    padding: 0 $paddingSp;
+
+    @include notSp {
+        max-width: $maxWidth;
+        margin: auto;
+        padding: 0 $paddingPc;
+    }
+}
+
+.VisualEffects__header {
+    font-size: $h2FontSizeSp;
+    padding-bottom: 1em;
+
+    @include notSp {
+        font-size: $h2FontSizePc;
+    }
+}
+
+.IO {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto auto 30%;
+    overflow: hidden;
+
+    &::before,
+    &::after {
+        content: "";
+        z-index: 1;
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        animation: 3s $easeInOutExpo;
+        transform-origin: center;
+        transform: rotate3d(1, 1, 0, 90deg);
+    }
+
+    &::before {
+        background: #eec073;
+        animation-name: intersection-observer-wrapper-before;
+    }
+
+    &::after {
+        background: #72c4f5;
+        animation-name: intersection-observer-wrapper-after;
+    }
+}
+
+.IO.-visually-hidden {
+    &::before,
+    &::after {
+        animation: none;
+    }
+}
+
+@keyframes intersection-observer-wrapper-before {
+    from,
+    to {
+        transform: rotate3d(1, 1, 0, 90deg);
+    }
+
+    35%,
+    65% {
+        transform: none;
+    }
+}
+
+@keyframes intersection-observer-wrapper-after {
+    from,
+    to {
+        transform: rotate3d(1, 1, 0, 90deg);
+    }
+
+    45%,
+    55% {
+        transform: none;
+    }
+}
+
+.IO__image {
+    display: block;
+    width: 100%;
+    transition: 0s 1500ms linear;
+}
+
+.IO.-visually-hidden .IO__image {
+    opacity: 0;
+}
+
+.Parallax {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.Parallax__image {
+    display: block;
+    width: 100%;
+}
+
+.BackgroundImage {
+    width: 100%;
+}
+
+.BackgroundImage__inner {
+    position: relative;
+    margin: auto;
+    padding: 0 $paddingSp;
+
+    @include notSp {
+        max-width: $maxWidth;
+        margin: auto;
+        padding: 0 $paddingPc;
+    }
+}
+
+.BackgroundImage__header {
+    font-size: $h2FontSizeSp;
+    padding-bottom: 1em;
+
+    @include notSp {
+        font-size: $h2FontSizePc;
+    }
+}
+
+.BackgroundImage__list {
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+}
+
+.BackgroundImage__cell {
+    position: relative;
+    width: 50%;
+}
+
+.BackgroundImage__image-header {
+    font-size: $h2FontSizeSp * 0.7;
+    padding-bottom: 1em;
+
+    @include notSp {
+        font-size: $h2FontSizePc * 0.7;
+    }
+}
+
+.BackgroundImage__image {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    padding: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    text-shadow: 0px 7px 10px #000;
+}
+
+.webp .BackgroundImage__image {
+    background-image: url("/images/80/p_1.webp");
+
+    &::after {
+        content: "WebP";
+    }
+}
+
+.no-webp .BackgroundImage__image {
+    background-image: url("/images/p_1.jpg");
+
+    &::after {
+        content: "jpg";
+    }
+}
