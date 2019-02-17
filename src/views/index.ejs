@@ -1,7 +1,7 @@
 <%
 const config = {
-    title: 'top',
-    description: 'This is top page',
+    title: '祝Firefox&Edge対応！WebPについて諸々 2019/3/2 @ Frontend Nagoya #9',
+    description: '祝Firefox&Edge対応！WebPについて諸々 2019/3/2 @ Frontend Nagoya #9 のサンプル、参考資料をまとめたページです',
     styles: ['/css/index.css'],
     scripts: [
         'https://cdn.polyfill.io/v2/polyfill.js?features=default-3.4,IntersectionObserver',
@@ -11,6 +11,21 @@ const config = {
 const imagePath = '/images';
 const features = ['webp', 'webplossless', 'webpalpha', 'webpanimation'];
 const kvs = ['f_1', 'f_2', 'u_1', 'u_2'];
+const documents = [
+    ['Wikipedia - WebP', 'https://ja.wikipedia.org/w/index.php?title=WebP&type=revision&diff=34299411&oldid=34299133'],
+    ['発音 その1', 'https://www.youtube.com/watch?v=pS8udLMOOaE&t=18'],
+    ['発音 その2', 'https://www.youtube.com/watch?v=pS8udLMOOaE&t=25'],
+    ['発音 その3', 'https://www.youtube.com/watch?v=pS8udLMOOaE&t=629'],
+    ['A new image format for the Web', 'https://developers.google.com/speed/webp/'],
+    ['画像の最適化を自動化する#WebP について', 'https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/automating-image-optimization/?hl=ja#what-is-webp'],
+    ['Using WebP Images', 'https://css-tricks.com/using-webp-images/'],
+    ['.htaccessによるWebPの選択的レスポンスとその問題点と改善案', 'https://qiita.com/miyanaga/items/6570c3c9ae8e15dbb57c'],
+    ['Can I Use - WebP image format', 'https://caniuse.com/#feat=webp'],
+    ['Transparent JPG (With SVG)', 'https://css-tricks.com/transparent-jpg-svg/'],
+    ['AdobeWebM', 'https://github.com/fnordware/AdobeWebM'],
+    ['Squoosh', 'https://squoosh.app'],
+];
+
 %>
 
 <%- include('./common/_head.ejs', { ...config }) %>
@@ -21,19 +36,34 @@ const kvs = ['f_1', 'f_2', 'u_1', 'u_2'];
             祝Firefox&Edge対応！WebPについて諸々<br>
             2019/3/2 @ Frontend Nagoya #9
         </h1>
-        <ul>
-            <li>
-                <a href="support.html">ブラウザサポート状況確認</a>
-            </li>
-            <li>
-                <a href="diff.html">画質比較用</a>
-            </li>
-            <li>
-                <a href="https://docs.google.com/spreadsheets/d/1Ckz3OuMxBAgQ40T-_f3RDQqc1FcLyEp3usXkkD32vOc/edit?usp=sharing">
-                    サイズ一覧
-                </a>
-            </li>
-        </ul>
+        <section class="Samples">
+            <h2 class="Samples__header">
+                制作物
+            </h2>
+            <ul>
+                <li>
+                    <a href="support.html">ブラウザサポート状況確認</a>
+                </li>
+                <li>
+                    <a href="diff.html">画質比較用</a>
+                </li>
+                <li>
+                    <a href="https://docs.google.com/spreadsheets/d/1Ckz3OuMxBAgQ40T-_f3RDQqc1FcLyEp3usXkkD32vOc/edit?usp=sharing">
+                        サイズ一覧
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section class="Documents">
+            <h2 class="Documents__header">
+                参考資料
+            </h2>
+            <ul>
+            <% documents.forEach(([title, url]) => { %>
+                <li><a href="<%= url %>" target="_blank" rel="noopener noreferrer"><%= title %></a></li>
+            <% }) %>
+            </ul>
+        </section>
     </div>
 </main>
 

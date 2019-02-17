@@ -15,7 +15,11 @@ body {
     font-family: $fontFamilyMincho;
     letter-spacing: 0.05em;
     font-feature-settings: "palt";
+    background-image: url("/images/bg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
     overflow-x: hidden;
+    color: #fff;
 }
 
 .Main {
@@ -25,21 +29,45 @@ body {
 
 .Main__inner {
     width: 100%;
-    padding: 5vw 0;
-
-    @include notSp {
-        padding: 5rem 0;
-    }
-}
-
-.Header {
-    padding: 0 $paddingSp 1em;
-    font-size: 4vw;
+    padding: 5vw $paddingSp;
 
     @include notSp {
         max-width: $maxWidth;
         margin: auto;
-        padding: 0 $paddingPc 1em;
+        padding: 5rem $paddingPc;
+    }
+}
+
+.Header {
+    padding: 0 0 1em;
+    font-size: 4.4vw;
+
+    @include notSp {
+        margin: auto;
+        padding: 0 0 1em;
         font-size: 3rem;
     }
+}
+
+h2 {
+    font-size: 3.8vw;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+
+    @include notSp {
+        font-size: 2.4rem;
+    }
+}
+
+li {
+    font-size: 2.8vw;
+    margin-bottom: 1em;
+
+    @include notSp {
+        font-size: 1.8rem;
+    }
+}
+
+a {
+    color: currentColor;
 }
