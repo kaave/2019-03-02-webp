@@ -137,11 +137,19 @@ body {
     display: block;
 }
 
+.Image[data-type="compress30"] .Image__image.-compress.-lv30 {
+    display: block;
+}
+
 .Image[data-type="webp80"] .Image__image.-webp.-lv80 {
     display: block;
 }
 
 .Image[data-type="webp50"] .Image__image.-webp.-lv50 {
+    display: block;
+}
+
+.Image[data-type="webp30"] .Image__image.-webp.-lv30 {
     display: block;
 }
 

@@ -17,11 +17,14 @@ const compressTypes = [
     { key: 'webp', lv: 80, desc: 'WebP (80)' },
     { key: 'compress', lv: 50, desc: 'MozJPEG/pngquart/gifscale (50)' },
     { key: 'webp', lv: 50, desc: 'WebP (50)' },
+    { key: 'compress', lv: 30, desc: 'MozJPEG/pngquart/gifscale (30)' },
+    { key: 'webp', lv: 30, desc: 'WebP (30)' },
 ];
 const imageTypes = ['jpg', 'png', 'gif'];
 const images = {
     jpg: [
-        { key: 'f_1', desc: '僕の写真 食べ物' }, { key: 'f_2', desc: '僕の写真 食べ物' },
+        { key: 'f_1', desc: '僕の写真 食べ物' },
+        { key: 'f_2', desc: '僕の写真 食べ物' },
         { key: 'p_1', desc: '僕の写真 風景' },
         { key: 'p_2', desc: '僕の写真 風景' },
         { key: 'u_1', desc: 'unsplash' },
@@ -104,5 +107,12 @@ function getImageUrl(key, lv, compressType, ext) {
         <% }); %>
     </div>
 </main>
-
+<script>
+setTimeout(function() {
+    var videos = [].slice.call(document.querySelectorAll('video'));
+    videos.forEach(function (video) {
+        video.play();
+    });
+}, 5000);
+</script>
 <%- include('./common/_foot.ejs', { ...config }) %>
