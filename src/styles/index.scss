@@ -12,14 +12,24 @@ $h2FontSizePc: 6rem;
 html,
 body {
     width: 100%;
+    overflow-x: hidden;
+}
+
+body {
     font-family: $fontFamilyMincho;
     letter-spacing: 0.05em;
     font-feature-settings: "palt";
-    background-image: url("/images/bg.jpg");
     background-size: cover;
     background-attachment: fixed;
-    overflow-x: hidden;
     color: #fff;
+}
+
+.webp body {
+    background-image: url("/images/bg.webp");
+}
+
+.no-webp body {
+    background-image: url("/images/bg.jpg");
 }
 
 .Main {

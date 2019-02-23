@@ -25,6 +25,12 @@ const documents = [
     ['AdobeWebM', 'https://github.com/fnordware/AdobeWebM'],
     ['Squoosh', 'https://squoosh.app'],
 ];
+const materials = [
+    ['Unsplash', 'https://unsplash.com/'],
+    ['unDraw', 'https://undraw.co/'],
+    ['TOWN illust', 'http://town-illust.com/'],
+    ['Giphy', 'https://giphy.com/'],
+];
 
 %>
 
@@ -65,6 +71,26 @@ const documents = [
             <% documents.forEach(([title, url]) => { %>
                 <li><a href="<%= url %>" target="_blank" rel="noopener noreferrer"><%= title %></a></li>
             <% }) %>
+            </ul>
+        </section>
+
+        <section class="Documents">
+            <h2 class="Documents__header">
+                素材拝借
+            </h2>
+            <ul>
+            <% materials.forEach(([title, url]) => { %>
+                <li><a href="<%= url %>" target="_blank" rel="noopener noreferrer"><%= title %></a></li>
+            <% }) %>
+            </ul>
+        </section>
+
+        <section class="ETC">
+            <h2 class="ETC__header">
+                その他
+            </h2>
+            <ul>
+                <li>Background photo: Converge live @ Nagoya E.L.L.</li>
             </ul>
         </section>
     </div>
