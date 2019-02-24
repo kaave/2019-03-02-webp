@@ -31,6 +31,17 @@ const materials = [
     ['TOWN illust', 'http://town-illust.com/'],
     ['Giphy', 'https://giphy.com/'],
 ];
+const environments = [
+    ['MacbookPro', 'Mid 2015, 15inch, 2.5GHz Intel Corei7, 512GB SSD, 16GB 1600 MHz PC3-12800 DDR3L SDRAM'],
+    ['macOS', '10.14.3'],
+    ['node', 'v10.15.0'],
+    ['gulp', '4.0.0'],
+    ['imagemin', '6.1.0'],
+    ['imagemin-mozjpeg', '8.0.0'],
+    ['imagemin-pngquant', '7.0.0'],
+    ['imagemin-webp', '5.0.0'],
+    ['imagemin-gif2webp', '2.0.0'],
+];
 
 %>
 
@@ -83,6 +94,18 @@ const materials = [
                 <li><a href="<%= url %>" target="_blank" rel="noopener noreferrer"><%= title %></a></li>
             <% }) %>
             </ul>
+        </section>
+
+        <section class="Environments">
+            <h2 class="Environments__header">
+                動作環境
+            </h2>
+            <dl>
+            <% environments.forEach(([title, desc]) => { %>
+                <dt><%= title %>:</dt>
+                <dd style="text-indent: 1em; margin-bottom: 1em;"><%= desc %></dd>
+            <% }) %>
+            </dl>
         </section>
 
         <section class="ETC">
