@@ -79,6 +79,21 @@ li {
     }
 }
 
+figure {
+    display: inline-block;
+    max-width: 100%;
+}
+
+figcaption {
+    text-align: center;
+}
+
+img {
+    display: block;
+    border: solid 1px currentColor;
+    width: 100%;
+}
+
 a {
     color: currentColor;
 }
