@@ -1,4 +1,5 @@
 <%
+const metaImage = 'https://2019-03-02-webp.netlify.com/images/ogp.jpg';
 const config = {
     title: '祝Firefox&Edge対応！WebPについて諸々 2019/3/2 @ Frontend Nagoya #9',
     description: '祝Firefox&Edge対応！WebPについて諸々 2019/3/2 @ Frontend Nagoya #9 のサンプル、参考資料をまとめたページです',
@@ -6,7 +7,17 @@ const config = {
     scripts: [
         'https://cdn.polyfill.io/v2/polyfill.js?features=default-3.4,IntersectionObserver',
     ],
-    metaImage: 'https://dummyimage.com/600x400/333/ddd.png&text=Dummy+image',
+    metaImage,
+    og: {
+        type: 'website',
+        image: metaImage,
+        url: 'https://2019-03-02-webp.netlify.com/',
+        siteName: '祝Firefox&Edge対応！WebPについて諸々 2019/3/2 @ Frontend Nagoya #9'
+    },
+    twitter: {
+        card: 'summary_large_image',
+        site: '@junkjunctions',
+    }
 };
 const imagePath = '/images';
 const features = ['webp', 'webplossless', 'webpalpha', 'webpanimation'];
@@ -53,14 +64,12 @@ const environments = [
             祝Firefox&Edge対応！WebPについて諸々<br>
             2019/3/2 @ Frontend Nagoya #9
         </h1>
+        <script async class="speakerdeck-embed" data-id="0be06eae7be04749a4b67a7cde8d9ba9" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
         <section class="Samples">
             <h2 class="Samples__header">
                 制作物
             </h2>
             <ul>
-                <li>
-                    <a href="https://speakerdeck.com/kaave/zhu-firefox-and-edgedui-ying-webpnituitezhu" rel="noopener noreferrer">スライド</a>
-                </li>
                 <li>
                     <a href="support.html">ブラウザサポート状況確認</a>
                 </li>

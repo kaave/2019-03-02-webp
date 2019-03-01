@@ -1,4 +1,5 @@
 <%
+const metaImage = 'https://2019-03-02-webp.netlify.com/images/ogp.jpg';
 const config = {
     title: 'DIFF | Frontend Nagoya #9 WebP Samples',
     description: 'Frontend Nagoya #9 WebP Samples',
@@ -8,7 +9,17 @@ const config = {
         '/js/vendor.bundle.js',
         '/js/diff.js'
     ],
-    metaImage: 'https://dummyimage.com/600x400/333/ddd.png&text=Dummy+image',
+    metaImage,
+    og: {
+        type: 'article',
+        image: metaImage,
+        url: 'https://2019-03-02-webp.netlify.com/',
+        siteName: '祝Firefox&Edge対応！WebPについて諸々 2019/3/2 @ Frontend Nagoya #9'
+    },
+    twitter: {
+        card: 'summary_large_image',
+        site: '@junkjunctions',
+    }
 };
 const imagePath = '/images';
 const compressTypes = [

@@ -1,14 +1,25 @@
 <%
+const metaImage = 'https://2019-03-02-webp.netlify.com/images/ogp.jpg';
 const config = {
-    title: 'top',
-    description: 'This is top page',
+    title: 'BROWSER SUPPORT | Frontend Nagoya #9 WebP Samples',
+    description: 'Frontend Nagoya #9 WebP Samples',
     styles: ['/css/support.css'],
     scripts: [
         'https://cdn.polyfill.io/v2/polyfill.js?features=default-3.4,IntersectionObserver',
         '/js/vendor.bundle.js',
         '/js/support.js'
     ],
-    metaImage: 'https://dummyimage.com/600x400/333/ddd.png&text=Dummy+image',
+    metaImage,
+    og: {
+        type: 'article',
+        image: metaImage,
+        url: 'https://2019-03-02-webp.netlify.com/',
+        siteName: '祝Firefox&Edge対応！WebPについて諸々 2019/3/2 @ Frontend Nagoya #9'
+    },
+    twitter: {
+        card: 'summary_large_image',
+        site: '@junkjunctions',
+    }
 };
 const imagePath = '/images';
 const features = ['webp', 'webplossless', 'webpalpha', 'webpanimation'];
